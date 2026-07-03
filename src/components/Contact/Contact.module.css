@@ -1,182 +1,392 @@
-/* ─── Section shell ──────────────────────────────────────── */
-.contact {
-  position: relative;
-  padding: 140px 0 100px;
-  overflow: hidden;
+/* ─── Section ────────────────────────────────────────────── */
+.section {
+  display: flex;
+  flex-direction: column;
 }
 
-.glow {
+/* ══════════════════════════════════════════════════════════
+   TOP HERO — "Let's Make It Happen" (Image 1 inspiration)
+══════════════════════════════════════════════════════════ */
+.hero {
+  position: relative;
+  padding: 120px 24px 100px;
+  text-align: center;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+}
+
+/* Green radial glow from top — the defining visual from image 1,
+   but using our green (#4ade80) instead of their lime */
+.heroGlow {
   position: absolute;
-  top: 0;
+  top: -120px;
   left: 50%;
   transform: translateX(-50%);
-  width: 700px;
-  height: 400px;
-  background: radial-gradient(ellipse, rgba(124, 106, 250, 0.1) 0%, transparent 70%);
+  width: 900px;
+  height: 500px;
+  background: radial-gradient(
+    ellipse 70% 60% at 50% 0%,
+    rgba(74, 222, 128, 0.18) 0%,
+    rgba(124, 106, 250, 0.06) 50%,
+    transparent 100%
+  );
   pointer-events: none;
   z-index: 0;
 }
 
-.inner {
+.heroInner {
   position: relative;
   z-index: 1;
-  max-width: 700px;
+  max-width: 800px;
   margin: 0 auto;
-  padding: 0 24px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 48px;
-  text-align: center;
+  gap: 20px;
 }
 
-/* ─── Header ─────────────────────────────────────────────── */
-.headerBlock {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.eyebrow {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #4ade80;
 }
 
-.heading {
-  font-size: clamp(28px, 4vw, 44px);
-  font-weight: 300;
+.heroHeading {
+  font-size: clamp(40px, 7vw, 88px);
+  font-weight: 700;
   color: var(--primary);
-  letter-spacing: -0.03em;
-  line-height: 1.2;
-  margin-bottom: 16px;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
 }
 
-.headingAccent {
-  font-weight: 600;
-  color: var(--accent-dim);
-  text-shadow: 0 0 30px rgba(124, 106, 250, 0.3);
+.heroAccent {
+  font-style: italic;
+  color: #4ade80;
+  text-shadow: 0 0 60px rgba(74, 222, 128, 0.3);
 }
 
-.subheading {
-  font-size: 15px;
+.heroSub {
+  font-size: 16px;
   color: var(--muted);
   line-height: 1.7;
-  max-width: 460px;
+  max-width: 520px;
 }
 
-/* ─── Email block ────────────────────────────────────────── */
-.emailBlock {
+/* Social row */
+.socials {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 18px;
-  width: 100%;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 8px;
 }
 
-.emailButton {
+.socialBtn {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
-  padding: 14px 20px;
+  gap: 8px;
+  padding: 9px 16px;
+  border-radius: 100px;
+  background: var(--s-bg);
+  color: var(--s-color);
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.socialBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+  opacity: 0.9;
+}
+
+/* ══════════════════════════════════════════════════════════
+   BOTTOM — two-column: left text + right form (Image 2)
+══════════════════════════════════════════════════════════ */
+.bottom {
+  padding: 100px 24px;
+  background: var(--bg);
+}
+
+.bottomInner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 80px;
+  align-items: start;
+}
+
+/* ─── Left column ────────────────────────────────────────── */
+.leftCol {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding-top: 8px;
+}
+
+.leftEyebrow {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.leftHeading {
+  font-size: clamp(32px, 4.5vw, 56px);
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+}
+
+.leftAccent {
+  color: var(--accent-dim);
+  font-style: italic;
+}
+
+.directLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.directLabel {
+  font-size: 12px;
+  color: var(--subtle);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 500;
+}
+
+.emailLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--accent-dim);
+  text-decoration: none;
+  font-family: 'Fira Code', monospace;
+  transition: gap 0.2s ease;
+}
+
+.emailLink:hover {
+  gap: 10px;
+}
+
+/* ─── Form card ──────────────────────────────────────────── */
+.formWrap {
   background: var(--card);
   border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  cursor: pointer;
-  font-family: 'Fira Code', monospace;
-  transition: all 0.2s ease;
-  max-width: 100%;
+  border-radius: 20px;
+  padding: 40px 36px;
 }
 
-.emailButton:hover {
-  border-color: rgba(124, 106, 250, 0.35);
-  background: rgba(124, 106, 250, 0.05);
+.formHeader {
+  margin-bottom: 32px;
 }
 
-.emailIcon {
-  color: var(--accent-dim);
-  flex-shrink: 0;
-}
-
-.emailText {
-  font-size: 15px;
+.formTitle {
+  font-size: 22px;
+  font-weight: 700;
   color: var(--primary);
-  font-weight: 500;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
 }
 
-.copyIndicator {
+.formSub {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.form {
   display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Two fields side by side */
+.row2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--muted);
+  letter-spacing: 0.02em;
+}
+
+.input {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 14px;
+  font-family: inherit;
+  color: var(--primary);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.input::placeholder {
+  color: var(--subtle);
+}
+
+.input:focus {
+  border-color: rgba(124, 106, 250, 0.5);
+  box-shadow: 0 0 0 3px rgba(124, 106, 250, 0.08);
+}
+
+.inputError {
+  border-color: rgba(239, 68, 68, 0.5);
+}
+
+.inputError:focus {
+  border-color: rgba(239, 68, 68, 0.6);
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.08);
+}
+
+.select {
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 40px;
+}
+
+/* Fix select option colors on dark bg */
+.select option {
+  background: #1c1c1c;
+  color: var(--primary);
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 120px;
+  line-height: 1.6;
+}
+
+.error {
+  font-size: 11px;
+  color: #f87171;
+  margin-top: 2px;
+}
+
+/* Submit button */
+.submitBtn {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: var(--muted);
-  flex-shrink: 0;
-  margin-left: 4px;
-}
-
-/* ─── Social grid ────────────────────────────────────────── */
-.socialGrid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
+  gap: 10px;
+  height: 52px;
+  padding: 0 28px;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: inherit;
+  color: #fff;
+  background: var(--accent);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 4px;
   width: 100%;
 }
 
-.socialCard {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 14px 16px;
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  text-align: left;
-  transition: all 0.2s ease;
-}
-
-.socialCard:hover {
-  border-color: rgba(124, 106, 250, 0.3);
+.submitBtn:hover:not(:disabled) {
+  background: var(--accent-dim);
   transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(124, 106, 250, 0.35);
 }
 
-.socialIconWrap {
+.submitBtn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Spinner */
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ─── Success state ──────────────────────────────────────── */
+.successState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+  padding: 48px 24px;
+}
+
+.successIcon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(74, 222, 128, 0.1);
+  border: 1px solid rgba(74, 222, 128, 0.3);
+  color: #4ade80;
+  font-size: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 32px;
-  height: 32px;
-  border-radius: var(--radius-md);
-  background: rgba(124, 106, 250, 0.08);
-  color: var(--accent-dim);
-  flex-shrink: 0;
 }
 
-.socialMeta {
-  display: flex;
-  flex-direction: column;
-  gap: 1px;
-  flex: 1;
-  min-width: 0;
-}
-
-.socialLabel {
-  font-size: 13px;
-  font-weight: 500;
+.successTitle {
+  font-size: 22px;
+  font-weight: 700;
   color: var(--primary);
+  letter-spacing: -0.02em;
 }
 
-.socialHandle {
-  font-size: 11px;
+.successSub {
+  font-size: 14px;
   color: var(--muted);
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.socialArrow {
-  color: var(--subtle);
-  flex-shrink: 0;
+  line-height: 1.6;
+  max-width: 300px;
 }
 
 /* ─── Responsive ─────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .bottomInner {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .leftHeading { font-size: 36px; }
+}
+
 @media (max-width: 600px) {
-  .contact { padding: 100px 0 80px; }
-  .socialGrid { grid-template-columns: 1fr; }
-  .emailText { font-size: 13px; }
+  .hero { padding: 80px 24px 72px; }
+  .bottom { padding: 72px 24px; }
+  .formWrap { padding: 28px 20px; }
+  .row2 { grid-template-columns: 1fr; }
+  .heroHeading { font-size: 38px; }
 }

@@ -1,4 +1,3 @@
-/* ─── Section ────────────────────────────────────────────── */
 .section {
   padding: 120px 0;
   border-bottom: 1px solid var(--border);
@@ -13,7 +12,6 @@
   gap: 56px;
 }
 
-/* ─── Header ─────────────────────────────────────────────── */
 .header {
   display: flex;
   align-items: flex-end;
@@ -42,18 +40,17 @@
   line-height: 1.6;
 }
 
-/* ─── 2-column grid ──────────────────────────────────────── */
+/* 2-column grid */
 .grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
 }
 
-/* ─── Card ───────────────────────────────────────────────── */
+/* Card */
 .card {
   display: flex;
   flex-direction: column;
-  gap: 0;
   border-radius: 16px;
   overflow: hidden;
   background: var(--card);
@@ -66,7 +63,7 @@
   border-color: var(--subtle);
 }
 
-/* ─── Screenshot area ────────────────────────────────────── */
+/* Image area */
 .imgWrap {
   position: relative;
   width: 100%;
@@ -75,15 +72,15 @@
   background: var(--surface);
 }
 
-/* Real screenshot — uncomment and use when you have screenshots */
 .img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: top;
   display: block;
 }
 
-/* Placeholder — colored gradient until real screenshots are added */
+/* Placeholder */
 .imgPlaceholder {
   width: 100%;
   height: 100%;
@@ -107,7 +104,7 @@
   padding: 0 24px;
 }
 
-/* Dark overlay that fades in on hover */
+/* Hover overlay */
 .overlay {
   position: absolute;
   inset: 0;
@@ -133,15 +130,7 @@
   backdrop-filter: blur(8px);
 }
 
-/* Invisible div that handles the scale transform separately
-   so it doesn't interfere with overlay z-index */
-.imgScaler {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-}
-
-/* Tag badge — top left */
+/* Tag badge */
 .tagBadge {
   position: absolute;
   top: 14px;
@@ -158,7 +147,7 @@
   letter-spacing: 0.06em;
 }
 
-/* Tech pills — bottom left, appear on hover */
+/* Tech pills on hover */
 .techRow {
   position: absolute;
   bottom: 14px;
@@ -174,14 +163,14 @@
   font-weight: 500;
   padding: 3px 9px;
   border-radius: 100px;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.65);
   border: 1px solid rgba(255, 255, 255, 0.12);
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(6px);
   font-family: 'Fira Code', monospace;
 }
 
-/* ─── Footer row ─────────────────────────────────────────── */
+/* Footer */
 .footer {
   display: flex;
   align-items: center;
@@ -253,7 +242,7 @@
   gap: 8px;
 }
 
-/* ─── Responsive ─────────────────────────────────────────── */
+/* Responsive */
 @media (max-width: 768px) {
   .section { padding: 80px 0; }
   .grid { grid-template-columns: 1fr; gap: 16px; }
