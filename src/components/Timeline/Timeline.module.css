@@ -1,0 +1,213 @@
+/* ─── Section ────────────────────────────────────────────── */
+.section {
+  padding: 120px 0;
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+/* ─── Header ─────────────────────────────────────────────── */
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 520px;
+}
+
+.eyebrow {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #4ade80;
+}
+
+.heading {
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+}
+
+.headingAccent {
+  font-weight: 700;
+  color: var(--accent-dim);
+  font-style: italic;
+}
+
+.subheading {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+/* ─── Flow container ─────────────────────────────────────── */
+.flow {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.stepWrap {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ─── Each step row: text + sketch, alternating sides ─────── */
+.step {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+  padding: 48px 0;
+}
+
+/* Left: text on left, sketch on right */
+.stepLeft {
+  direction: ltr;
+}
+
+/* Right: text on right, sketch on left — swap column order */
+.stepRight {
+  direction: rtl;
+}
+
+.stepRight .textBlock,
+.stepRight .sketchBlock {
+  direction: ltr;
+}
+
+/* ─── Text block ─────────────────────────────────────────── */
+.textBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.stepMeta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.stepNumber {
+  font-size: 12px;
+  font-weight: 700;
+  font-family: 'Fira Code', monospace;
+  color: var(--accent-dim);
+  letter-spacing: 0.04em;
+}
+
+.stepLabel {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 3px 10px;
+  border: 1px solid var(--border);
+  border-radius: 100px;
+}
+
+.stepTitle {
+  font-size: clamp(20px, 2.8vw, 28px);
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+}
+
+.stepBody {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+/* ─── Sketch block ───────────────────────────────────────── */
+.sketchBlock {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 4 / 3;
+  transition: border-color 0.2s ease;
+}
+
+.sketchBlock:hover {
+  border-color: rgba(124, 106, 250, 0.3);
+}
+
+.sketchSvg {
+  width: 100%;
+  height: 100%;
+  max-width: 200px;
+}
+
+/* ─── Curved arrows between steps ───────────────────────── */
+.arrowWrap {
+  height: 56px;
+  display: flex;
+  align-items: center;
+}
+
+/* Arrow sits to the right when coming from a left-side step */
+.arrowRight {
+  justify-content: flex-end;
+  padding-right: 60px;
+}
+
+/* Arrow sits to the left when coming from a right-side step */
+.arrowLeft {
+  justify-content: flex-start;
+  padding-left: 60px;
+}
+
+.arrowSvg {
+  width: 120px;
+  height: 56px;
+}
+
+/* ─── Responsive ─────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .section { padding: 80px 0; }
+
+  .step {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 32px 0;
+    direction: ltr !important;
+  }
+
+  /* On mobile: sketch comes first, text below */
+  .stepLeft .sketchBlock,
+  .stepRight .sketchBlock {
+    order: -1;
+  }
+
+  .arrowWrap {
+    justify-content: center !important;
+    padding: 0 !important;
+    height: 48px;
+  }
+
+  .arrowSvg {
+    width: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .stepTitle { font-size: 20px; }
+  .sketchBlock { padding: 16px; }
+}

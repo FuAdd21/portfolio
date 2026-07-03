@@ -1,0 +1,182 @@
+/* ─── Section shell ──────────────────────────────────────── */
+.contact {
+  position: relative;
+  padding: 140px 0 100px;
+  overflow: hidden;
+}
+
+.glow {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 700px;
+  height: 400px;
+  background: radial-gradient(ellipse, rgba(124, 106, 250, 0.1) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 48px;
+  text-align: center;
+}
+
+/* ─── Header ─────────────────────────────────────────────── */
+.headerBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.heading {
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 300;
+  color: var(--primary);
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.headingAccent {
+  font-weight: 600;
+  color: var(--accent-dim);
+  text-shadow: 0 0 30px rgba(124, 106, 250, 0.3);
+}
+
+.subheading {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 460px;
+}
+
+/* ─── Email block ────────────────────────────────────────── */
+.emailBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  width: 100%;
+}
+
+.emailButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 20px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  font-family: 'Fira Code', monospace;
+  transition: all 0.2s ease;
+  max-width: 100%;
+}
+
+.emailButton:hover {
+  border-color: rgba(124, 106, 250, 0.35);
+  background: rgba(124, 106, 250, 0.05);
+}
+
+.emailIcon {
+  color: var(--accent-dim);
+  flex-shrink: 0;
+}
+
+.emailText {
+  font-size: 15px;
+  color: var(--primary);
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.copyIndicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  flex-shrink: 0;
+  margin-left: 4px;
+}
+
+/* ─── Social grid ────────────────────────────────────────── */
+.socialGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  width: 100%;
+}
+
+.socialCard {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 16px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  text-align: left;
+  transition: all 0.2s ease;
+}
+
+.socialCard:hover {
+  border-color: rgba(124, 106, 250, 0.3);
+  transform: translateY(-2px);
+}
+
+.socialIconWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-md);
+  background: rgba(124, 106, 250, 0.08);
+  color: var(--accent-dim);
+  flex-shrink: 0;
+}
+
+.socialMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  flex: 1;
+  min-width: 0;
+}
+
+.socialLabel {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--primary);
+}
+
+.socialHandle {
+  font-size: 11px;
+  color: var(--muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.socialArrow {
+  color: var(--subtle);
+  flex-shrink: 0;
+}
+
+/* ─── Responsive ─────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .contact { padding: 100px 0 80px; }
+  .socialGrid { grid-template-columns: 1fr; }
+  .emailText { font-size: 13px; }
+}

@@ -1,0 +1,210 @@
+/* ─── Section ────────────────────────────────────────────── */
+.section {
+  padding: 120px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+}
+
+/* ─── Header ─────────────────────────────────────────────── */
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.eyebrow {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #4ade80;
+}
+
+/* Big display heading — like "EXPERTISE" in the reference */
+.heading {
+  font-size: clamp(52px, 10vw, 120px);
+  font-weight: 800;
+  color: var(--primary);
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+  /* Subtle gradient to give it depth — mimics the reference's metallic feel */
+  background: linear-gradient(180deg, #F5F5F5 0%, #555 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Accordion list ─────────────────────────────────────── */
+.list {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--border);
+}
+
+/* ─── Single accordion item ──────────────────────────────── */
+.item {
+  border-bottom: 1px solid var(--border);
+  transition: background 0.2s ease;
+}
+
+.item.itemOpen {
+  background: rgba(124, 106, 250, 0.03);
+}
+
+/* ─── Always-visible row ─────────────────────────────────── */
+.row {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+  padding: 28px 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
+  transition: opacity 0.15s ease;
+}
+
+.row:hover .rowTitle {
+  color: var(--accent-dim);
+}
+
+.rowNumber {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--subtle);
+  font-family: 'Fira Code', monospace;
+  min-width: 28px;
+  letter-spacing: 0.04em;
+  /* Roman numeral style — matches the reference exactly */
+}
+
+.rowTitle {
+  font-size: clamp(22px, 3.5vw, 36px);
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: -0.03em;
+  flex: 1;
+  transition: color 0.2s ease;
+}
+
+.itemOpen .rowTitle {
+  color: var(--accent-dim);
+}
+
+.rowIcon {
+  font-size: 28px;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  flex-shrink: 0;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.item.itemOpen .rowIcon {
+  border-color: var(--accent);
+  color: var(--accent-dim);
+}
+
+/* ─── Expanded panel ─────────────────────────────────────── */
+.panel {
+  overflow: hidden;
+}
+
+.panelInner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+  padding: 0 0 40px 52px; /* indent to align under title */
+}
+
+/* Left: text */
+.panelLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.description {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.75;
+  max-width: 420px;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  display: inline-block;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--muted);
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  transition: all 0.2s ease;
+}
+
+.tag:hover {
+  border-color: rgba(124, 106, 250, 0.4);
+  color: var(--accent-dim);
+}
+
+/* Right: illustration */
+.illustration {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 20px;
+  aspect-ratio: 4 / 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* ─── Responsive ─────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .section { padding: 80px 0; }
+
+  .panelInner {
+    grid-template-columns: 1fr;
+    padding-left: 0;
+    gap: 28px;
+  }
+
+  .illustration {
+    aspect-ratio: 16 / 9;
+  }
+
+  .row { gap: 16px; }
+  .rowNumber { min-width: 20px; }
+}
+
+@media (max-width: 480px) {
+  .heading { font-size: 52px; }
+  .rowTitle { font-size: 20px; }
+  .row { padding: 20px 0; }
+}

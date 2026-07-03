@@ -1,0 +1,247 @@
+/* ─── Section shell ──────────────────────────────────────── */
+.skills {
+  position: relative;
+  padding: 120px 0;
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+}
+
+/* Subtle dev-themed background — small square grid pattern, like a code editor canvas */
+.bgPattern {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(124, 106, 250, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(124, 106, 250, 0.035) 1px, transparent 1px);
+  background-size: 28px 28px;
+  pointer-events: none;
+  z-index: 0;
+  mask-image: radial-gradient(ellipse 75% 70% at 50% 40%, black 20%, transparent 90%);
+  -webkit-mask-image: radial-gradient(ellipse 75% 70% at 50% 40%, black 20%, transparent 90%);
+}
+
+/* Soft ambient glow, mirrors hero's signature treatment */
+.glowOrb {
+  position: absolute;
+  top: -100px;
+  right: -120px;
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(circle, rgba(124, 106, 250, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+}
+
+/* ─── Header ─────────────────────────────────────────────── */
+.header {
+  display: flex;
+  flex-direction: column;
+  max-width: 560px;
+}
+
+.heading {
+  font-size: clamp(28px, 3.5vw, 40px);
+  font-weight: 300;
+  color: var(--primary);
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin-bottom: 14px;
+}
+
+.headingAccent {
+  font-weight: 600;
+  color: var(--accent-dim);
+}
+
+.subheading {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+/* ─── Two-column content area ────────────────────────────── */
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+
+/* ─── Left: tabs + featured icon list ────────────────────── */
+.featureCol {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* Tab row */
+.tabs {
+  display: flex;
+  gap: 2px;
+  border-bottom: 1px solid var(--border);
+}
+
+.tab {
+  position: relative;
+  padding: 8px 16px 12px;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--muted);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  font-family: inherit;
+  white-space: nowrap;
+}
+
+.tab:hover {
+  color: var(--primary);
+}
+
+.tab.tabActive {
+  color: var(--primary);
+}
+
+.tabIndicator {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--accent);
+  box-shadow: 0 0 6px rgba(124, 106, 250, 0.5);
+  border-radius: 1px;
+}
+
+/* Featured skill list — replaces the old bar chart */
+.featurePanel {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.featureRow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.featureRow:hover {
+  background: var(--card);
+  border-color: var(--border);
+}
+
+.featureIconWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--icon-color) 12%, var(--card));
+  border: 1px solid color-mix(in srgb, var(--icon-color) 25%, var(--border));
+}
+
+.featureIcon {
+  color: var(--icon-color);
+  filter: drop-shadow(0 0 6px color-mix(in srgb, var(--icon-color) 50%, transparent));
+}
+
+.featureName {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--primary);
+}
+
+/* ─── Right: chip grid ───────────────────────────────────── */
+.chipCol {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.chipLabel {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--subtle);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.chipGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Individual chip — real colored brand logo + name */
+.chip {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 14px 8px 8px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  transition: all 0.2s ease;
+  cursor: default;
+}
+
+.chip:hover {
+  border-color: color-mix(in srgb, var(--icon-color, var(--accent)) 35%, var(--border));
+  background: rgba(124, 106, 250, 0.04);
+  transform: translateY(-1px);
+}
+
+.chipIconWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--icon-color) 14%, var(--surface));
+  flex-shrink: 0;
+}
+
+.chipIcon {
+  color: var(--icon-color);
+}
+
+.chipName {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--primary);
+  white-space: nowrap;
+}
+
+/* ─── Responsive ─────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .content {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+}
+
+@media (max-width: 480px) {
+  .skills { padding: 80px 0; }
+  .tabs { overflow-x: auto; }
+  .bgPattern { background-size: 22px 22px; }
+}
