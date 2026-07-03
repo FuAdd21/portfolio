@@ -18,37 +18,42 @@ export default function About() {
 
   return (
     <section id="about" className={styles.about}>
-      <div className={styles.inner}>
+     <div className={styles.inner}>
 
-        {/* Eyebrow */}
-        <motion.span
-          className={styles.eyebrow}
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewportConfig}
-        >
-          About me
-        </motion.span>
+        <div className={styles.headWrap}>
+          {/* Ghost watermark — big faded label sitting behind the real heading */}
+          <span className={styles.ghostLabel} aria-hidden="true">About</span>
 
-        {/* Big editorial headline */}
-        <motion.h2
-          className={styles.headline}
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewportConfig}
-        >
-          <motion.span className={styles.headLine} variants={staggerItem}>
-            I build things that live
+          {/* Eyebrow */}
+          <motion.span
+            className={styles.eyebrow}
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportConfig}
+          >
+            About me
           </motion.span>
-          <motion.span className={styles.headLine} variants={staggerItem}>
-            on the internet —
-          </motion.span>
-          <motion.span className={styles.headLine} variants={staggerItem}>
-            <em className={styles.accentWord}>cleanly.</em>
-          </motion.span>
-        </motion.h2>
+
+          {/* Big editorial headline */}
+          <motion.h2
+            className={styles.headline}
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportConfig}
+          >
+            <motion.span className={styles.headLine} variants={staggerItem}>
+              I build things that live
+            </motion.span>
+            <motion.span className={styles.headLine} variants={staggerItem}>
+              on the internet —
+            </motion.span>
+            <motion.span className={styles.headLine} variants={staggerItem}>
+              <em className={styles.accentWord}>cleanly.</em>
+            </motion.span>
+          </motion.h2>
+        </div>
 
         {/* Bottom two-column */}
         <div className={styles.bottom}>
@@ -83,7 +88,7 @@ export default function About() {
             </ul>
           </motion.div>
 
-          {/* Right: overlapping photo cards */}
+        {/* Right: photo card */}
           <motion.div
             className={styles.rightCol}
             initial={{ opacity: 0, y: 32 }}
@@ -110,18 +115,6 @@ export default function About() {
               <span className={styles.accentCardText}>Available now</span>
             </motion.div>
 
-            {/* Decorative card behind photo */}
-            <motion.div
-              className={styles.decoCard}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={viewportConfig}
-              transition={{ duration: 0.45, delay: 0.3 }}
-            >
-              <span className={styles.decoLine} />
-              <span className={styles.decoLine} style={{ width: '60%' }} />
-              <span className={styles.decoLine} style={{ width: '80%' }} />
-            </motion.div>
           </motion.div>
 
         </div>

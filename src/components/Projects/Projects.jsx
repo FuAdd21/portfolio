@@ -1,115 +1,109 @@
-import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { ArrowUpRight } from 'lucide-react'
+import { ArrowUpRight, Wrench, UserCircle2 } from 'lucide-react'
 import { SiGithub } from 'react-icons/si'
 import { projects } from '../../data/projects'
 import styles from './Projects.module.css'
 
-const grid = {
-  hidden:  {},
-  visible: { transition: { staggerChildren: 0.1, delayChildren: 0.05 } },
-}
-
-const cardAnim = {
-  hidden:  { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.4, 0, 0.2, 1] } },
-}
-
-function ProjectCard({ project }) {
-  const [hovered, setHovered] = useState(false)
-
+function ProjectRow({ project }) {
   return (
     <motion.article
-      className={styles.card}
-      variants={cardAnim}
-      onHoverStart={() => setHovered(true)}
-      onHoverEnd={() => setHovered(false)}
+      className={styles.row}
+      initial={{ opacity: 0, y: 48 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.15 }}
+      transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
     >
-      {/* Screenshot area */}
-      <div className={styles.imgWrap}>
+      {/* ── Left: screenshot in a browser-chrome frame ── */}
+      <div className={styles.screenshotCol}>
+        <div className={styles.browserFrame}>
+          <div className={styles.browserBar}>
+            <span className={styles.dotRed} />
+            <span className={styles.dotYellow} />
+            <span className={styles.dotGreen} />
+            <span className={styles.urlPill}>
+              {project.title.toLowerCase().replace(/\s+/g, '')}.dev
+            </span>
+          </div>
 
-        {/* Real image if available, colored placeholder as fallback */}
-        {project.screenshot ? (
-          <motion.img
-            src={project.screenshot}
-            alt={project.title}
-            className={styles.img}
-            animate={{ scale: hovered ? 1.04 : 1 }}
-            transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
-          />
-        ) : (
-          <motion.div
-            className={styles.imgPlaceholder}
-            style={{ '--project-color': project.color }}
-            animate={{ scale: hovered ? 1.04 : 1 }}
-            transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
-          >
-            <span className={styles.placeholderTitle}>{project.title}</span>
-          </motion.div>
-        )}
+          <div className={styles.screenshotWrap}>
+            <img
+              src={project.screenshot}
+              alt={project.title}
+              className={styles.screenshot}
+              loading="lazy"
+            />
+          </div>
 
-        {/* Dark overlay on hover */}
-        <motion.div
-          className={styles.overlay}
-          animate={{ opacity: hovered ? 1 : 0 }}
-          transition={{ duration: 0.25 }}
-        >
-          <motion.div
-            className={styles.overlayLabel}
-            animate={{ opacity: hovered ? 1 : 0, y: hovered ? 0 : 10 }}
-            transition={{ duration: 0.25, delay: hovered ? 0.05 : 0 }}
-          >
-            <ArrowUpRight size={18} />
-            View Project
-          </motion.div>
-        </motion.div>
-
-        {/* Featured tag */}
-        {project.tag && (
-          <span className={styles.tagBadge}>{project.tag}</span>
-        )}
-
-        {/* Tech pills — appear on hover */}
-        <motion.div
-          className={styles.techRow}
-          animate={{ opacity: hovered ? 1 : 0, y: hovered ? 0 : 6 }}
-          transition={{ duration: 0.2, delay: hovered ? 0.08 : 0 }}
-        >
-          {project.tech.map(t => (
-            <span key={t} className={styles.techPill}>{t}</span>
-          ))}
-        </motion.div>
+          {project.tag && (
+            <span className={styles.liveBadge}>
+              <span className={styles.liveDot} />
+              {project.tag}
+            </span>
+          )}
+        </div>
       </div>
 
-      {/* Card footer */}
-      <div className={styles.footer}>
-        <div className={styles.footerLeft}>
-          <span className={styles.projectTitle}>{project.title}</span>
-          <span className={styles.projectCategory}>{project.category}</span>
+      {/* ── Right: details ── */}
+      <div className={styles.detailCol}>
+
+        <div className={styles.detailTop}>
+          <h3 className={styles.projectTitle}>{project.title}</h3>
+          <span className={styles.projectTagline}>{project.tagline}</span>
+          <p className={styles.description}>{project.description}</p>
         </div>
 
-        <div className={styles.footerLinks}>
-          <a
-            href={project.githubUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.iconLink}
-            aria-label="GitHub"
-            onClick={e => e.stopPropagation()}
-          >
-            <SiGithub size={16} />
-          </a>
+        <div className={styles.roleBox}>
+          <div className={styles.roleBoxHeader}>
+            <span className={styles.roleIcon}>
+              <UserCircle2 size={18} />
+            </span>
+            <h4 className={styles.roleHeading}>{project.role.heading}</h4>
+          </div>
+          <p className={styles.roleBody}>{project.role.body}</p>
+        </div>
 
+        <div className={styles.toolsSection}>
+          <div className={styles.toolsHeader}>
+            <span className={styles.toolsIcon}>
+              <Wrench size={14} />
+            </span>
+            <span className={styles.toolsLabel}>Tools & Technologies</span>
+          </div>
+          <div className={styles.toolsGrid}>
+            {project.tools.map(({ name, icon: Icon, color }) => (
+              <span
+                key={name}
+                className={styles.toolBadge}
+                style={{ '--tool-color': color }}
+                title={name}
+              >
+                <Icon size={18} />
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <div className={styles.linkRow}>
           <a
             href={project.liveUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className={styles.viewLink}
+            className={styles.primaryLink}
           >
-            View Project
-            <ArrowUpRight size={14} />
+            View Live Project
+            <ArrowUpRight size={15} />
+          </a>
+          <a
+            href={project.githubUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.githubLink}
+            aria-label="View source on GitHub"
+          >
+            <SiGithub size={16} />
           </a>
         </div>
+
       </div>
     </motion.article>
   )
@@ -124,28 +118,23 @@ export default function Projects() {
           className={styles.header}
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
         >
+          <span className={styles.eyebrow}>Selected Work</span>
           <h2 className={styles.heading}>
-            Latest <span className={styles.headingAccent}>Projects</span>
+            Featured <em className={styles.headingAccent}>Projects</em>
           </h2>
           <p className={styles.subheading}>
             Five projects, each targeting a different layer of the stack.
           </p>
         </motion.div>
 
-        <motion.div
-          className={styles.grid}
-          variants={grid}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
-        >
+        <div className={styles.list}>
           {projects.map(project => (
-            <ProjectCard key={project.id} project={project} />
+            <ProjectRow key={project.id} project={project} />
           ))}
-        </motion.div>
+        </div>
 
       </div>
     </section>

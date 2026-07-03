@@ -65,15 +65,18 @@ export default function Navbar() {
       <header className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`}>
         <div className={styles.inner}>
 
-          {/* Logo / wordmark */}
+          {/* Logo / wordmark — { Fuad.dev } */}
           <a
             href="#"
             className={styles.logo}
             onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }) }}
             aria-label="Fuad Aman – back to top"
           >
-            <span className={styles.logoText}>FA</span>
-            <span className={styles.logoDot} aria-hidden="true" />
+            <span className={styles.logoBrace} aria-hidden="true">{'{'}</span>
+            <span className={styles.logoText}>
+              Fuad<span className={styles.logoAccent}>.dev</span>
+            </span>
+            <span className={styles.logoBrace} aria-hidden="true">{'}'}</span>
           </a>
 
           {/* Desktop nav links */}
