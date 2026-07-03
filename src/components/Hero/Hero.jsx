@@ -48,7 +48,7 @@ export default function Hero() {
     <section id="hero" className={styles.hero}>
 
       {/* Background: subtle dot-grid */}
-      <div className={styles.dotGrid} aria-hidden="true" />
+      <div  />
 
       {/* Left violet glow */}
       <div className={styles.glowLeft}  aria-hidden="true" />

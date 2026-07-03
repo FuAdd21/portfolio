@@ -14,6 +14,9 @@
   --accent-dim:  #9D8FFB;
   --accent-glow: rgba(124, 106, 250, 0.15);
   --accent-glow-strong: rgba(124, 106, 250, 0.25);
+  --accent-magenta:        #E24FC8;
+  --accent-magenta-glow:        rgba(226, 79, 200, 0.10);
+  --accent-magenta-glow-strong: rgba(226, 79, 200, 0.22);
   --primary:     #F5F5F5;
   --muted:       #888888;
   --subtle:      #444444;

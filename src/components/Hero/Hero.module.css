@@ -11,7 +11,7 @@
 }
 
 /* ─── Background: dot grid ───────────────────────────────── */
-.dotGrid {
+/* .dotGrid {
   position: absolute;
   inset: 0;
   background-image: radial-gradient(circle, rgba(255,255,255,0.07) 1px, transparent 1px);
@@ -20,7 +20,7 @@
   z-index: 0;
   mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 20%, transparent 100%);
   -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 20%, transparent 100%);
-}
+} */
 
 /* ─── Glows ──────────────────────────────────────────────── */
 .glowLeft {
