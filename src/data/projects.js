@@ -41,7 +41,7 @@ export const projects = [
     tools: [
       { name: 'React',   icon: SiReact,     color: '#61DAFB' },
       { name: 'Node.js', icon: SiNodedotjs, color: '#5FA04E' },
-      { name: 'Express', icon: SiExpress,   color: '#FFFFFF' },
+      { name: 'Express', icon: SiExpress,   color: '#8c8787' },
     ],
   },
   {
@@ -62,7 +62,7 @@ export const projects = [
       { name: 'React',   icon: SiReact,     color: '#61DAFB' },
       { name: 'Node.js', icon: SiNodedotjs, color: '#5FA04E' },
       { name: 'MySQL',   icon: SiMysql,     color: '#4479A1' },
-      { name: 'Express', icon: SiExpress,   color: '#FFFFFF' },
+      { name: 'Express', icon: SiExpress,   color: '#8c8787' },
     ],
   },
   {

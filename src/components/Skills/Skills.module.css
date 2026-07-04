@@ -2,6 +2,7 @@
 .skills {
   position: relative;
   padding: 120px 0;
+  background: var(--bg);
   border-bottom: 1px solid var(--border);
   overflow: hidden;
 }
@@ -251,4 +252,11 @@
 
 [data-theme='light'] .glowOrb {
   opacity: 0;
+}
+
+/* Fully hide the decorative texture in light mode — it only
+   looks intentional on the dark background */
+[data-theme='light'] .bgPattern,
+[data-theme='light'] .glowOrb {
+  display: none;
 }

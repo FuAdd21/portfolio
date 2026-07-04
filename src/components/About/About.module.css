@@ -2,6 +2,7 @@
 .about {
   padding: 96px 0 100px;
   border-bottom: 1px solid var(--border);
+  background: var(--bg);
 }
 
 .inner {

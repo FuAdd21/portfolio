@@ -23,8 +23,8 @@ export const skillGroups = [
     label: 'Backend',
     skills: [
       { name: 'Node.js',    icon: SiNodedotjs, color: '#5FA04E' },
-      { name: 'Express.js', icon: SiExpress,   color: '#FFFFFF' },
-      { name: 'REST APIs',  icon: SiPostman,   color: '#FF6C37' },
+      { name: 'Express.js', icon: SiExpress,   color: '#726e6ee7' },
+      { name: 'Postman',  icon: SiPostman,   color: '#ca552bee' },
     ],
   },
   {
@@ -32,7 +32,7 @@ export const skillGroups = [
     label: 'Database',
     skills: [
       { name: 'MySQL',   icon: SiMysql,   color: '#4479A1' },
-      { name: 'MongoDB', icon: SiMongodb, color: '#47A248' },
+      { name: 'MongoDB', icon: SiMongodb, color: '#029a04' },
     ],
   },
   {
@@ -40,7 +40,7 @@ export const skillGroups = [
     label: 'Tools',
     skills: [
       { name: 'Git',     icon: SiGit,     color: '#F05032' },
-      { name: 'GitHub',  icon: SiGithub,  color: '#FFFFFF' },
+      { name: 'GitHub',  icon: SiGithub,  color: '#6b6969c4' },
       { name: 'Vite',    icon: SiVite,    color: '#646CFF' },
       { name: 'VS Code', icon: VscVscode, color: '#007ACC' },
     ],
