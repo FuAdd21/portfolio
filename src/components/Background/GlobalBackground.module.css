@@ -10,10 +10,12 @@
 
 /* ─── Fine dot grid — even coverage, whole page ────────────── */
 .dotsFine {
-  position: absolute;
-  inset: -5% -5%;
-  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-  background-size: 26px 26px;
+  background-image: radial-gradient(circle, var(--border) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+[data-theme='light'] .dotsFine {
+  opacity: 0.15;
 }
 
 /* ─── Wide dot grid — bigger dots, masked to bloom from the

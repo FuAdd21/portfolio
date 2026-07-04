@@ -98,9 +98,8 @@ export default function About() {
           >
             {/* Main photo card — replace placeholder with your real photo */}
             <div className={styles.photoCard}>
-              <div className={styles.photoPlaceholder}>
-                <span className={styles.photoInitials}>FA</span>
-              </div>
+              <img src="/images/profile.jpg" alt="Fuad Aman"
+  style={{ width: '100%', height: 'auto', objectFit: 'cover' }} />
             </div>
 
             {/* Green "Available now" floating pill */}

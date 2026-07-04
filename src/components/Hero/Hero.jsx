@@ -28,9 +28,9 @@ const LIT_CELLS = [
 ]
 
 const SOCIALS = [
-  { icon: Mail,         href: 'mailto:youremail@gmail.com',       label: 'Email'    },
-  { icon: SiGithub,     href: 'https://github.com/fuadaman',      label: 'GitHub'   },
-  { icon: FaLinkedinIn, href: 'https://linkedin.com/in/fuadaman', label: 'LinkedIn' },
+  { icon: Mail,         href: 'mailto:fuadaman19@gmail.com',       label: 'Email'    },
+  { icon: SiGithub,     href: 'https://github.com/FuAdd21',      label: 'GitHub'   },
+  { icon: FaLinkedinIn, href: 'https://www.linkedin.com/in/fuad-aman-bb17a932a/', label: 'LinkedIn' },
 ]
 
 export default function Hero() {

@@ -26,8 +26,8 @@
   height: 500px;
   background: radial-gradient(
     ellipse 70% 60% at 50% 0%,
-    rgba(74, 222, 128, 0.18) 0%,
-    rgba(124, 106, 250, 0.06) 50%,
+    var(--glow-green-soft) 0%,
+    var(--glow-violet-soft) 50%,
     transparent 100%
   );
   pointer-events: none;
@@ -389,4 +389,8 @@
   .formWrap { padding: 28px 20px; }
   .row2 { grid-template-columns: 1fr; }
   .heroHeading { font-size: 38px; }
+}
+
+[data-theme='light'] .heroGlow {
+  opacity: 0;
 }
