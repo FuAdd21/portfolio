@@ -8,7 +8,7 @@
   justify-content: center;
   overflow: hidden;
   padding: 130px 0 40px;
-  border-bottom: 1px solid var(--border);
+  border: 1px solid var(--border);
 }
 
 /* ─── Grid-line background ───────────────────────────────
@@ -19,9 +19,9 @@
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(124, 106, 250, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(124, 106, 250, 0.06) 1px, transparent 1px);
-  background-size: 72px 72px;
+    linear-gradient(rgba(72, 74, 72, 0.301) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(116, 117, 116, 0.171) 1px, transparent 1px);
+  background-size: 42px 42px;
   pointer-events: none;
   z-index: 0;
   mask-image: linear-gradient(to bottom, black 0%, black 55%, transparent 95%);
@@ -36,14 +36,14 @@
   z-index: 0;
 }
 
-.litCell {
+/* .litCell {
   position: absolute;
-  width: 72px;
-  height: 72px;
-  background: rgba(124, 106, 250, 0.05);
-  border: 1px solid rgba(124, 106, 250, 0.14);
+  width: 42px;
+  height: 42px;
+  background: rgba(20, 20, 20, 0.05);
+  border: 1px solid rgba(196, 195, 201, 0.14);
   border-radius: 2px;
-}
+} */
 
 /* ─── Ambient glow behind the badge ──────────────────────── */
 .glowCenter {

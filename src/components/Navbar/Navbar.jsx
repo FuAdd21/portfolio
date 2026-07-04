@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
+import ThemeToggle from '../ThemeToggle/ThemeToggle'
 import styles from './Navbar.module.css'
 
 const NAV_LINKS = [
@@ -108,15 +109,17 @@ export default function Navbar() {
             </ul>
           </nav>
 
-          {/* Desktop CTA */}
-          <a
-            href="#contact"
-            className={styles.hireCta}
-            onClick={(e) => { e.preventDefault(); handleNavClick('#contact') }}
-          >
-            Hire Me
-          </a>
-
+          {/* Theme toggle + Desktop CTA */}
+          <div className={styles.rightGroup}>
+            <ThemeToggle />
+            <a
+              href="#contact"
+              className={styles.hireCta}
+              onClick={(e) => { e.preventDefault(); handleNavClick('#contact') }}
+            >
+              Hire Me
+            </a>
+          </div>
           {/* Mobile hamburger */}
           <button
             className={styles.hamburger}
@@ -166,6 +169,11 @@ export default function Navbar() {
               </ul>
 
               <div className={styles.mobileCta}>
+                <div className={styles.mobileThemeRow}>
+                  <span className={styles.mobileThemeLabel}>Theme</span>
+                  <ThemeToggle />
+                </div>
+
                 <a
                   href="#contact"
                   className={styles.hireCtaMobile}

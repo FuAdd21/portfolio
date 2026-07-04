@@ -6,7 +6,7 @@
 
 /* ─── CSS custom properties ─────────────────────────────── */
 :root {
-  --bg:          #0A0A0A;
+  --bg:          #09090b;
   --surface:     #141414;
   --card:        #1C1C1C;
   --border:      #2A2A2A;
@@ -15,8 +15,8 @@
   --accent-glow: rgba(124, 106, 250, 0.15);
   --accent-glow-strong: rgba(124, 106, 250, 0.25);
   --accent-magenta:        #E24FC8;
-  --accent-magenta-glow:        rgba(226, 79, 200, 0.10);
-  --accent-magenta-glow-strong: rgba(226, 79, 200, 0.22);
+  --accent-magenta-glow:        rgba(107, 1, 88, 0.1);
+  --accent-magenta-glow-strong: rgba(254, 2, 208, 0.22);
   --primary:     #F5F5F5;
   --muted:       #888888;
   --subtle:      #444444;
@@ -27,6 +27,45 @@
 
   --transition:  all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-slow: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ═══════════════════════════════════════════════════════════
+  LIGHT THEME — activated via [data-theme="light"] on <html>
+═══════════════════════════════════════════════════════════ */
+[data-theme='light'] {
+  --bg:          #FAFAFA;
+  --surface:     #F2F2F2;
+  --card:        #FFFFFF;
+  --border:      #E4E4E7;
+  --accent:      #6D5AE6;
+  --accent-dim:  #5B47D9;
+  --accent-glow: rgba(109, 90, 230, 0.12);
+  --accent-glow-strong: rgba(109, 90, 230, 0.2);
+  --primary:     #16161A;
+  --muted:       #5B5B63;
+  --subtle:      #9A9AA2;
+}
+
+/* Smooth transition for the theme swap — applies to every element
+   that uses these tokens, so the whole page fades between themes */
+body,
+[class*='card'],
+[class*='surface'],
+[class*='border'],
+button,
+a,
+input,
+textarea,
+select {
+  transition: background-color 0.4s ease, border-color 0.4s ease, color 0.4s ease;
+}
+
+/* Respect users who prefer no motion */
+@media (prefers-reduced-motion: reduce) {
+  body, [class*='card'], [class*='surface'], [class*='border'],
+  button, a, input, textarea, select {
+    transition: none;
+  }
 }
 
 /* ─── Reset ──────────────────────────────────────────────── */

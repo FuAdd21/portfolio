@@ -10,6 +10,14 @@
     <meta property="og:description" content="Self-taught Full Stack Developer. MERN stack. Available for remote work." />
     <meta property="og:type" content="website" />
     <meta name="theme-color" content="#0A0A0A" />
+    <script>
+  (function () {
+    const saved = localStorage.getItem('theme');
+    const systemPrefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+    const theme = saved || (systemPrefersLight ? 'light' : 'dark');
+    document.documentElement.setAttribute('data-theme', theme);
+  })();
+</script>
     <title>Fuad Aman — Full Stack Developer</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   </head>
