@@ -140,10 +140,15 @@
   display: block;
 }
 
+.badgeRow {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 12px;
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+}
+
 .liveBadge {
-  position: absolute;
-  top: 44px;
-  right: 12px;
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -151,11 +156,9 @@
   font-size: 11px;
   font-weight: 600;
   color: #4ade80;
-  background: rgba(10, 10, 10, 0.75);
+  background: rgba(74, 222, 128, 0.08);
   border: 1px solid rgba(74, 222, 128, 0.3);
   border-radius: 100px;
-  backdrop-filter: blur(6px);
-  z-index: 2;
 }
 
 .liveDot {

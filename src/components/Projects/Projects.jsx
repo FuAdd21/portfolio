@@ -35,10 +35,12 @@ function ProjectRow({ project }) {
           </div>
 
           {project.tag && (
-            <span className={styles.liveBadge}>
-              <span className={styles.liveDot} />
-              {project.tag}
-            </span>
+            <div className={styles.badgeRow}>
+              <span className={styles.liveBadge}>
+                <span className={styles.liveDot} />
+                {project.tag}
+              </span>
+            </div>
           )}
         </div>
       </div>
