@@ -1,6 +1,6 @@
 /* ─── Section ────────────────────────────────────────────── */
 .about {
-  padding: 96px 0 100px;
+  padding: 50px 0 50px;
   border-bottom: 1px solid var(--border);
   background: var(--bg);
 }

@@ -4,6 +4,27 @@ import {
 
 export const projects = [
   {
+    id:         'evangadi-forum',
+    title:      'Evangadi Forum',
+    tagline:    'AI-powered Q&A community platform',
+    tag:        'Live',
+    liveUrl:    'https://evangadi-forum-app-pi.vercel.app/',
+    githubUrl:  'https://github.com/FuAdd21/Evangadi-forum-app',
+    screenshot: '/images/evangadi-forum.png',
+    description:
+      "A full-stack Q&A forum enhanced with AI — combining semantic similarity search and a RAG-based grounded query system so users get relevant answers, not just keyword matches. Built collaboratively with a team using Agile workflows and GitHub-based version control.",
+    role: {
+      heading: 'Role & Contribution',
+      body: "Worked within a team following Agile SDLC and a structured GitHub workflow (feature branches, pull requests, code review). Personally owned the similarity-question feature (surfacing related questions via semantic matching), the AI-grounded RAG query system, and the MyQuestions view on the frontend. Also handled full-stack deployment — resolving SSL/TLS configuration, CORS mismatches between Render and Vercel, a mysql2 prepared-statement bug affecting LIMIT/OFFSET queries, and migration/seeding scripts with vector embedding support.",
+    },
+    tools: [
+      { name: 'React',   icon: SiReact,     color: '#61DAFB' },
+      { name: 'Node.js', icon: SiNodedotjs, color: '#5FA04E' },
+      { name: 'Express', icon: SiExpress,   color: '#8c8787' },
+      { name: 'MySQL',   icon: SiMysql,     color: '#4479A1' },
+    ],
+  },
+  {
     id:         'netflix',
     title:      'Netflix Clone',
     tagline:    'Streaming platform UI',
