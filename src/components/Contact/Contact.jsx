@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { ArrowUpRight, Send } from 'lucide-react'
 import { SiGithub, SiTelegram } from 'react-icons/si'
 import { FaLinkedinIn } from 'react-icons/fa'
+import emailjs from '@emailjs/browser'
 import styles from './Contact.module.css'
 import { fadeUp, staggerContainer, staggerItem, viewportConfig } from '../../hooks/useScrollReveal'
 
@@ -24,11 +25,17 @@ const SUBJECTS = [
   'Other',
 ]
 
+// Pulled from .env — see setup steps. Never hardcode these directly.
+const SERVICE_ID  = import.meta.env.VITE_EMAILJS_SERVICE_ID
+const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
+const PUBLIC_KEY  = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+
 export default function Contact() {
   const [form, setForm]       = useState({ name: '', email: '', subject: '', message: '' })
   const [sending, setSending] = useState(false)
   const [sent, setSent]       = useState(false)
   const [errors, setErrors]   = useState({})
+  const [sendError, setSendError] = useState('')
 
   const validate = () => {
     const e = {}
@@ -52,10 +59,28 @@ export default function Contact() {
     if (Object.keys(e2).length) { setErrors(e2); return }
 
     setSending(true)
-    // Replace this with your real form handler (EmailJS, Formspree, etc.)
-    await new Promise(r => setTimeout(r, 1400))
-    setSending(false)
-    setSent(true)
+    setSendError('')
+
+    try {
+      await emailjs.send(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        {
+          name:    form.name,
+          email:   form.email,
+          title:   form.subject,
+          message: form.message,
+        },
+        { publicKey: PUBLIC_KEY }
+      )
+      setSent(true)
+      setForm({ name: '', email: '', subject: '', message: '' })
+    } catch (err) {
+      console.error('EmailJS send failed:', err)
+      setSendError("Something went wrong sending your message. Please try again, or email me directly.")
+    } finally {
+      setSending(false)
+    }
   }
 
   return (
@@ -223,6 +248,8 @@ export default function Contact() {
                   />
                   {errors.message && <span className={styles.error}>{errors.message}</span>}
                 </div>
+
+                {sendError && <p className={styles.error}>{sendError}</p>}
 
                 {/* Submit */}
                 <button
