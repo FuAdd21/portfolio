@@ -270,7 +270,7 @@
 /* Fix select option colors on dark bg */
 .select option {
   background: #1c1c1c;
-  color: var(--primary);
+  color: #f1f1f1;
 }
 
 .textarea {

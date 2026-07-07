@@ -31,7 +31,7 @@ const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
 const PUBLIC_KEY  = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
 
 export default function Contact() {
-  const [form, setForm]       = useState({ name: '', email: '', subject: '', message: '' })
+  const [form, setForm]       = useState({ name: '', email: '', phone: '', subject: '', message: '' })
   const [sending, setSending] = useState(false)
   const [sent, setSent]       = useState(false)
   const [errors, setErrors]   = useState({})
@@ -68,13 +68,14 @@ export default function Contact() {
         {
           name:    form.name,
           email:   form.email,
+          phone:   form.phone,
           title:   form.subject,
           message: form.message,
         },
         { publicKey: PUBLIC_KEY }
       )
       setSent(true)
-      setForm({ name: '', email: '', subject: '', message: '' })
+      setForm({ name: '', email: '', phone: '', subject: '', message: '' })
     } catch (err) {
       console.error('EmailJS send failed:', err)
       setSendError("Something went wrong sending your message. Please try again, or email me directly.")
@@ -214,6 +215,21 @@ export default function Contact() {
                     />
                     {errors.email && <span className={styles.error}>{errors.email}</span>}
                   </div>
+                </div>
+
+                {/* Phone — optional */}
+                <div className={styles.field}>
+                  <label className={styles.label} htmlFor="phone">Phone (optional)</label>
+                  <input
+                    id="phone"
+                    name="phone"
+                    type="tel"
+                    placeholder="+251 900 000 000"
+                    value={form.phone}
+                    onChange={handleChange}
+                    className={styles.input}
+                    autoComplete="tel"
+                  />
                 </div>
 
                 {/* Subject dropdown */}
