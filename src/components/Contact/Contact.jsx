@@ -173,7 +173,7 @@ export default function Contact() {
                 <span className={styles.successIcon}>✓</span>
                 <h4 className={styles.successTitle}>Message sent!</h4>
                 <p className={styles.successSub}>
-                  Thanks for reaching out — I'll get back to you within a day.
+                  Thanks for reaching out — I'll get back to you as soon as possible.
                 </p>
               </div>
             ) : (

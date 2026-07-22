@@ -90,7 +90,7 @@ export default function Hero() {
               aria-label={social.label}
               className={styles.socialBtn}
             >
-              <Icon size={16} />
+              <Icon size={30} />
               <span className={styles.socialTooltip}>{social.label}</span>
             </a>
           );
