@@ -10,9 +10,9 @@ import { fadeUp, staggerContainer, staggerItem, viewportConfig } from '../../hoo
 const EMAIL = 'fuadaman19@gmail.com'
 
 const SOCIALS = [
-  { icon: SiGithub,     href: 'https://github.com/fuadaman',        label: 'GitHub',   color: '#ffffff', bg: '#24292e' },
-  { icon: FaLinkedinIn, href: 'https://linkedin.com/in/fuadaman',   label: 'LinkedIn', color: '#ffffff', bg: '#0A66C2' },
-  { icon: SiTelegram,   href: 'https://t.me/fuadaman',              label: 'Telegram', color: '#ffffff', bg: '#26A5E4' },
+  { icon: SiGithub,     href: 'https://github.com/FuAdd21',        label: 'GitHub',   color: '#ffffff', bg: '#24292e' },
+  { icon: FaLinkedinIn, href: 'www.linkedin.com/in/fuad-aman-bb17a932a',   label: 'LinkedIn', color: '#ffffff', bg: '#0A66C2' },
+  { icon: SiTelegram,   href: 'https://t.me/fuye54',              label: 'Telegram', color: '#ffffff', bg: '#26A5E4' },
 ]
 
 const SUBJECTS = [

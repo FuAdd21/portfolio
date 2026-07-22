@@ -167,9 +167,10 @@
   border-radius: 6px;
 }
 
-/* CTA row */
+/* ─── CTA row (buttons + resume card, all inline) ────────── */
 .ctaRow {
   display: flex;
+  align-items: center;
   gap: 12px;
   flex-wrap: wrap;
   justify-content: center;
@@ -305,6 +306,117 @@
   color: var(--subtle);
 }
 
+/* ─── Resume download card — now inline with the CTA buttons ── */
+.resumeCard {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  height: 48px;
+  padding: 0 16px 0 8px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  text-decoration: none;
+  overflow: hidden;
+  cursor: pointer;
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.resumeCard:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px var(--accent-glow-strong);
+}
+
+.resumeIconWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: var(--accent-glow);
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.resumeTextWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  text-align: left;
+}
+
+.resumeTitle {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--primary);
+  white-space: nowrap;
+}
+
+.resumeMeta {
+  font-size: 10.5px;
+  color: var(--muted);
+  font-family: 'Fira Code', monospace;
+}
+
+.resumeArrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  flex-shrink: 0;
+  margin-left: 2px;
+}
+
+/* Simulated download progress — plays across the bottom edge on click */
+.resumeProgress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-dim));
+  box-shadow: 0 0 8px var(--accent-glow-strong);
+}
+
+/* ─── Quick-credibility stat strip ───────────────────────── */
+.statStrip {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-top: 4px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.statNum {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: -0.02em;
+  font-family: 'Fira Code', monospace;
+}
+
+.statLabel {
+  font-size: 10.5px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.statDivider {
+  width: 1px;
+  height: 24px;
+  background: var(--border);
+}
+
 /* ─── Responsive ─────────────────────────────────────────── */
 @media (max-width: 900px) {
   .gridPattern { background-size: 56px 56px; }
@@ -317,8 +429,14 @@
   .headline { font-size: 44px; }
   .sub      { font-size: 15px; }
   .ctaRow   { flex-direction: column; align-items: stretch; width: 100%; }
-  .ctaPrimary, .ctaOutline { justify-content: center; }
+  .ctaPrimary, .ctaOutline, .resumeCard { justify-content: center; }
   .scrollNudge { display: none; }
+  .statStrip {
+    gap: 14px;
+  }
+  .statDivider {
+    height: 20px;
+  }
 }
 
 /* Force glow orbs off in light mode — guaranteed override */
