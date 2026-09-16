@@ -128,7 +128,7 @@ export default function Projects() {
             Featured <em className={styles.headingAccent}>Projects</em>
           </h2>
           <p className={styles.subheading}>
-            Six projects, each targeting a different layer of the stack.
+            Seven projects, each targeting a different layer of the stack.
           </p>
         </motion.div>
 

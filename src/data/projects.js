@@ -1,8 +1,36 @@
 import {
   SiReact, SiNodedotjs, SiExpress, SiMysql, SiJavascript, SiHtml5, SiCss,
+  SiNestjs, SiNextdotjs, SiJest, SiGooglegemini, SiGoogle, SiRender,
+  SiVercel, SiPostgresql, SiNeon,
 } from 'react-icons/si'
 
 export const projects = [
+  {
+    id:         'studybridge-ai',
+    title:      'StudyBridge AI',
+    tagline:    'Source-grounded AI study & exam-prep platform',
+    tag:        'Live',
+    liveUrl:    'https://studybridge-ai-phi.vercel.app/',
+    githubUrl:  'https://github.com/FuAdd21/StudybridgeAI',
+    screenshot: '/images/studybridge.png',
+    description:
+      "A source-grounded AI study and exam-preparation platform originally scoped for Ethiopian Grade 12 learners — every AI answer is cited back to the learner's own uploaded materials rather than an open-ended chatbot response. Covers document ingestion, RAG-grounded chat, quiz generation, spaced-repetition reviews, study sessions, and gamified progress tracking.",
+    role: {
+      heading: 'Role & Contribution',
+      body: "Solo-built end-to-end: planned the MVP from a technical blueprint, then wrote and worked through 50+ backend task docs across auth, onboarding, subjects, document upload/RAG processing, grounded AI chat, quiz generation, study sessions, progress/mastery tracking, and gamification. Built the Next.js frontend against a full Stitch design system, including the dashboard AppShell/sidebar and a dedicated study workspace — a resizable split view combining a PDF viewer with a floating/dockable AI chat panel.",
+    },
+    tools: [
+      { name: 'Next.js',      icon: SiNextdotjs,    color: '#000000' },
+      { name: 'NestJS',       icon: SiNestjs,       color: '#E0234E' },
+      { name: 'PostgreSQL',   icon: SiPostgresql,   color: '#4169E1' },
+      { name: 'Gemini API',   icon: SiGooglegemini, color: '#8E75B2' },
+      { name: 'Google OAuth', icon: SiGoogle,       color: '#4285F4' },
+      { name: 'Jest',         icon: SiJest,         color: '#C21325' },
+      { name: 'Render',       icon: SiRender,       color: '#46E3B7' },
+      { name: 'Vercel',       icon: SiVercel,       color: '#000000' },
+      { name: 'Neon',         icon: SiNeon,         color: '#00E599' },
+    ],
+  },
   {
     id:         'evangadi-forum',
     title:      'Evangadi Forum',
